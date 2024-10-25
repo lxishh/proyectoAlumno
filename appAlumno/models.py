@@ -1,3 +1,8 @@
 from django.db import models
 
 # Create your models here.
+class Alumno(models.Model):
+    dni = models.CharField(max_length=9)
+    direccion = models.CharField(max_length=50)
+    telefono = models.CharField(max_length=9)
+    edad = models.CharField(max_length=2)

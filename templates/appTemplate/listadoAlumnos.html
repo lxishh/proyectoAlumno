@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumnos</title>
+</head>
+<body>
+    {% if alumnos %}
+    <h1>Alumnos registrados:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Dirección</th>
+                <th>Telefono</th>
+                <th>Edad</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in alumnos %}
+            <tr>
+                <td>{{a.dni}}</td>
+                <td>{{a.direccion}}</td>
+                <td>{{a.telefono}}</td>
+                <td>{{a.edad}}</td>
+                <td><a href="/eliminarAlumno/{{a.id}}">Eliminar</a></td>
+                <td><a href="/actualizarAlumno/{{a.id}}">Actualizar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+    <h1>No hay alumnos registrados.</h1>
+
+    {% endif %}
+
+    <a href="../">Volver</a>
+    <br>
+    <a href="/registrar">Realizar registro</a>
+</body>
+</html>
