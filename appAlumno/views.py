@@ -17,7 +17,9 @@ def registrarAlumnos(request):
         form = FormularioAlumno(request.POST)
         if form.is_valid():
             form.save()
-        return index(request)
+            return index(request)
+    else:
+        form = FormularioAlumno()
     data = {'form':form}
     return render(request, 'registrarAlumnos.html', data)
 
@@ -33,6 +35,8 @@ def actualizarAlumno(request, id):
         form = FormularioAlumno(request.POST, instance=alumno)
         if form.is_valid():
             form.save()
-        return index(request)
+            return index(request)
+    else:
+        form = FormularioAlumno(instance=alumno)
     data = {'form':form}
     return render(request, 'registrarAlumnos.html', data)
