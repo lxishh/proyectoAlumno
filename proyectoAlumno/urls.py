@@ -15,13 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from appAlumno.views import index, listarAlumnos, registrarAlumnos, eliminarAlumno, actualizarAlumno
+from appAlumno import views as appAlumno
+from appProfesor import views as appProfesor
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('alumnos/', listarAlumnos),
-    path('registrar/', registrarAlumnos),
-    path('eliminarAlumno/<int:id>', eliminarAlumno),
-    path('actualizarAlumno/<int:id>', actualizarAlumno)
+    path('', appAlumno.index),
+    path('alumnos/', appAlumno.listarAlumnos),
+    path('registrar/', appAlumno.registrarAlumnos),
+    path('eliminarAlumno/<int:id>', appAlumno.eliminarAlumno),
+    path('actualizarAlumno/<int:id>', appAlumno.actualizarAlumno),
+    
+    path('profesores/',appProfesor.listadoProfesor),
+    path('agregarProfesor/',appProfesor.agregarProfesor),
+    path('eliminarProfesor/<int:id>',appProfesor.eliminarProfesor),
+    path('actualizarProfesor/<int:id>',appProfesor.actualizarProfesor)
 ]

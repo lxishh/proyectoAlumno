@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de profesores</title>
+</head>
+<body>
+    <h1>Listado de profesores</h1>
+    {% if profesores %}
+    <table>
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>telefono</th>
+                <th>dni</th>
+                <th>direccion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profesor in profesores %}
+            <tr>
+                <td>{{profesor.nombre}}</td>
+                <td>{{profesor.telefono}}</td>
+                <td>{{profesor.dni}}</td>
+                <td>{{profesor.direccion}}</td>
+                <td><a href="/actualizarProfesor/{{profesor.id}}">actualizar</a></td>
+                <td><a href="/eliminarProfesor/{{profesor.id}}">eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div>
+        <strong> no se han registrado profesores</strong>
+    </div>
+    {% endif %}
+    <a href="../">volver</a>
+    <a href="/agregarProfesor">agregar profesor</a>
+</body>
+</html>
