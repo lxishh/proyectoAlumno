@@ -25,9 +25,8 @@ urlpatterns = [
     path('registrar/', appAlumno.registrarAlumnos),
     path('eliminarAlumno/<int:id>', appAlumno.eliminarAlumno),
     path('actualizarAlumno/<int:id>', appAlumno.actualizarAlumno),
-    
     path('profesores/',appProfesor.listadoProfesor),
     path('agregarProfesor/',appProfesor.agregarProfesor),
     path('eliminarProfesor/<int:id>',appProfesor.eliminarProfesor),
-    path('actualizarProfesor/<int:id>',appProfesor.actualizarProfesor)
+    path('actualizarProfesor/<int:id>',appProfesor.actualizarProfesor),
 ]
